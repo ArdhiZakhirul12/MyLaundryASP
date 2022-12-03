@@ -1,0 +1,79 @@
+﻿@model IEnumerable<projectLaundry.Models.transaksiClass>
+
+@{
+    ViewBag.Title = "LoggedIn";
+}
+@if (Session["id_admin"] != null)
+            {
+
+            }
+
+<h2>Daftar Transaksi</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            Nama Admin
+        </th>*@
+        <th>
+            Nama Customer
+        </th>
+        <th>
+            Paket
+        </th>
+        <th>
+            Tanggal Transaksi
+        </th>
+        @*<th>
+            Berat(Kg)
+        </th>
+        <th>
+            Tanggal Diambil
+        </th>
+            *@
+        <th>
+            Total(Rp)
+        </th>
+        <th>
+            Aksi
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.adminClass.nama_admin)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.custClass.nama_cust)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paketClass.nama_paket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tgl_transaksi)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.kuantitas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tgl_diambil)
+        </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.paketClass.harga * item.kuantitas)*@
+            @{int total = item.paketClass.harga * item.kuantitas;}
+            @Html.DisplayFor(x =>total)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_transaksi }, new {@class="btn btn-primary"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_transaksi }, new {@class="btn btn-warning"}) 
+           @* @Html.ActionLink("Delete", "Delete", new { id=item.id_transaksi }, new {@class="btn btn-danger"})*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model projectLaundry.Models.adminClass
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin  @Html.DisplayFor(model => model.nama_admin)</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nama Admin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nama_admin)
+        </dd>
+
+        <dt>
+            Alamat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alamat_admin)
+        </dd>
+
+        <dt>
+            No Hp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_telp)
+        </dd>
+
+        <dt>
+            Username
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username_admin)
+        </dd>
+
+        <dt>
+            Password
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password_admin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_admin }, new {@class="btn btn-primary"}) |
+    @Html.ActionLink("Kembali", "Index", new { }, new {@class="btn btn-danger"})
+</p>

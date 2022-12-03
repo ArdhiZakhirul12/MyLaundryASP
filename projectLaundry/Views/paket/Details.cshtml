@@ -1,0 +1,42 @@
+﻿@model projectLaundry.Models.paketClass
+
+@{
+    ViewBag.Title = "Paket";
+}
+
+<h2>Details Paket</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nama Paket
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nama_paket)
+        </dd>
+
+        <dt>
+            Keterangan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keterangan)
+        </dd>
+
+        <dt>
+            Harga(Rp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.harga)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_paket }, new {@class="btn btn-primary"}) |
+    @Html.ActionLink("Kembali", "Index", new { }, new {@class="btn btn-danger"})
+</p>

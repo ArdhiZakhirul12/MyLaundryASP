@@ -1,0 +1,42 @@
+﻿@model projectLaundry.Models.custClass
+
+@{
+    ViewBag.Title = "Customer";
+}
+
+<h2>Customer  @Html.DisplayFor(model => model.nama_cust)</h2>
+
+<div>
+    <h4>custClass</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nama Customer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nama_cust)
+        </dd>
+
+        <dt>
+           Alamat Customer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alamat_cust)
+        </dd>
+
+        <dt>
+            No Hp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_cust)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_cust }, new {@class="btn btn-primary"}) |
+    @Html.ActionLink("Kembali", "Index", new { }, new {@class="btn btn-danger"})
+</p>

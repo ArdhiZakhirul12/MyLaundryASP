@@ -1,0 +1,73 @@
+﻿@model projectLaundry.Models.transaksiClass
+
+@{
+    ViewBag.Title = "Transaksi";
+}
+
+<h2>Transaksi</h2>
+
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Admin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adminClass.nama_admin)
+        </dd>
+
+        <dt>
+           Customer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custClass.nama_cust)
+        </dd>
+
+        <dt>
+           Paket
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paketClass.nama_paket)
+        </dd>
+
+        <dt>
+            Tanggal Transaksi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tgl_transaksi)
+        </dd>
+
+        <dt>
+            Berat(Kg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kuantitas)
+        </dd>
+
+        <dt>
+            tanggal Diambil
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tgl_diambil)
+        </dd>
+        <dt>
+            Total(Rp)
+        </dt>
+        <dd>
+            @{int total = Model.paketClass.harga * Model.kuantitas;}
+            @Html.DisplayFor(x => total)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_transaksi }, new {@class="btn btn-primary"}) |
+    @Html.ActionLink("Kembali", "Index", new { }, new {@class="btn btn-danger"})
+</p>

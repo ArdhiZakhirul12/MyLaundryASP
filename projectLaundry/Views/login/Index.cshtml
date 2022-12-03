@@ -1,0 +1,100 @@
+﻿@model projectLaundry.Models.adminClass
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-color: #A4B48C;
+        }
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+           background-color:#ffffff;
+           border-radius:8px;
+        }
+        #sign{
+            font-size:20px;
+        }
+        button, input, optgroup, select, textarea {
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Autherize", "login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+
+                    <td id="sign" style="font-family:Oswald; padding-left:35px">SIGN IN</td>
+                    
+                </tr>
+                
+                <tr>
+                    <td style="font-family:Poppins">
+                        @*@Html.LabelFor(model => model.username_admin)*@
+                        Username
+     
+                    </td>
+                   
+                    <td >
+                        @Html.EditorFor(model => model.username_admin)
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.username_admin)</td>
+                </tr>
+              
+                <tr>
+                    <td style="font-family:Poppins">
+                        @*@Html.LabelFor(model => model.password_admin)*@
+                        Password
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.password_admin)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.password_admin)</td>
+                </tr>
+
+
+                <tr>
+                    <td></td>
+                    <td >
+                        <input type="submit" name="name" value="Login" class="btn btn-success" style="font-family:Poppins; margin-left:125px;" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    }
+
+</body>
+</html>

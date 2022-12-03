@@ -1,0 +1,47 @@
+﻿@model IEnumerable<projectLaundry.Models.paketClass>
+
+@{
+    ViewBag.Title = "Daftar Paket";
+}
+
+<h2>Daftar Paket</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nama Paket
+        </th>
+        <th>
+           Keterangan
+        </th>
+        <th>
+            Harga (Rp)
+        </th>
+        <th>
+            Aksi
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nama_paket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keterangan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.harga)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_paket }, new {@class="btn btn-primary"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_paket }, new {@class="btn btn-warning"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_paket },new {@class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>

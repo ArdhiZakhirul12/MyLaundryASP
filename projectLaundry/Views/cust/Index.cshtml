@@ -1,0 +1,47 @@
+﻿@model IEnumerable<projectLaundry.Models.custClass>
+
+@{
+    ViewBag.Title = "Daftar Customer";
+}
+
+<h2>Daftar Customer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nama Customer
+        </th>
+        <th>
+            Alamat
+        </th>
+        <th>
+            No HP
+        </th>
+        <th>
+            Aksi
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nama_cust)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alamat_cust)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_cust)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_cust }, new {@class="btn btn-primary"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_cust }, new {@class="btn btn-warning"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_cust }, new {@class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>
